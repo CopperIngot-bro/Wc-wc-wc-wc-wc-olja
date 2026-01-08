@@ -29,13 +29,14 @@
     <button id="onc" onclick="shop()">0</button>
     <button id="shop-1" style="display: none;" onclick="f3()">Boban Kalamarkos Per Click</button>
     <button id="shop-2" style="display: none;" onclick="f4()">Math q</button>
-        
+    <button id="shop-3" style="display: none;" onclick="f5()">Math q</button>    
 <script>
   let mony = 0;
   let g = 2;
 function f2() {
 const elm1 = document.createElement("h1");
 elm1.textContent="Boban Kalamarko";
+  elm1.class="Darko";
 document.body.appendChild(elm1);
 }
 function f1() {
@@ -94,6 +95,17 @@ function shop() {
               
   }
 }
+  function f5() {
+    if (mony >= 1000) {
+      mony -= 1000;
+    const elements = document.getElementsByClassName("Darko");
+
+if (elements.length > 0) {
+    const elementToRemove = elements[0];
+    elementToRemove.parentNode.removeChild(elementToRemove);
+}}
+    
+  }
 </script>
   </body>
 </html>
