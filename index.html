@@ -127,7 +127,8 @@ if (document.documentElement.style.filter === 'invert(1)') {
    g=Math.floor(mony/20);
 mony=mony%20;
  }
-  setInterval(() => {q_sell();}, 200);
+  
+  setInterval(() => {if(cheat === 1) {q_sell();}}, 200);
 </script>
   </body>
 </html>
