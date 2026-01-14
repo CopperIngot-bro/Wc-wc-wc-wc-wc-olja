@@ -115,11 +115,13 @@ function shop() {
   function chth() {
 if (document.documentElement.style.filter === 'invert(1)') {
     document.documentElement.style.filter = 'invert(0)';
-    document.body.style.backgroundColor = 'white';
+    document.body.style.setProperty('background-color', 'white', 'important');
 } else {
     document.documentElement.style.filter = 'invert(1)';
-    document.body.style.backgroundColor = 'black';
-}}
+    document.body.style.setProperty('background-color', 'black', 'important');
+}
+    
+  }
     
 </script>
   </body>
