@@ -33,6 +33,7 @@
     <button id="shop-2" style="display: none;" onclick="f4()">Math question</button>    
     <button id="shop-3" style="display: none;" onclick="f5()">Clear your RAM</button>    
 <script>
+  let cheat = 0000;
   let mony = 0;
   let g = 2;
   let Boban_Kalamarkos = [];
@@ -125,7 +126,8 @@ if (document.documentElement.style.filter === 'invert(1)') {
  function q_sell() {
    g=Math.floor(mony/20);
 mony=mony%20;
- }  
+ }
+  setInterval(() => {q_sell();}, 200);
 </script>
   </body>
 </html>
