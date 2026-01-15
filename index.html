@@ -34,7 +34,8 @@
     <button id="shop-2" style="display: none;" onclick="f4()">Math question</button>    
     <button id="shop-3" style="display: none;" onclick="f5()">Clear your RAM</button>    
 <script>
-  let cheat = 0000;
+  let allow_quick_sell;
+  let allow_linux;
   let mony = 0;
   let g = 2;
   let Boban_Kalamarkos = [];
@@ -130,8 +131,8 @@ mony=mony%20;
  }
   
   setInterval(() => {
-    if(cheat === 2) {document.getElementById("linux").style.display="block";}else{document.getElementById("linux").style.display="none";}
-    if(cheat === 1) {q_sell();}}, 200);
+    if(allow_linux === 1) {document.getElementById("linux").style.display="block";}else{document.getElementById("linux").style.display="none";}
+    if(allow_quick_sell=== 1) {q_sell();}}, 200);
 </script>
   </body>
 </html>
