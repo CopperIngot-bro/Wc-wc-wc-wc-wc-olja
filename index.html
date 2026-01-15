@@ -18,6 +18,7 @@
   </head>
   
   <body>
+    <img id="linux" src="https://static0.howtogeekimages.com/wordpress/wp-content/uploads/2024/12/linux-mascot-on-a-laptop-screen-holding-a-wine-glass.jpg?q=49&fit=crop&w=480&h=270&dpr=2" style="display:none">
     <iframe width="384" height="60" style="border: none;" src="https://www.beepbox.co/player/#song=9n31s0k0l04e05t2ma7g0fj09r1i0o432T7v1u26f21842uaq011d07H_-CSQBKRKRJJJJh0IbE0T3v1ud8f10t5q011d35SU006050woha9999E0T1v1u62f0qwx10s811d08A0F0B0Q00adPfe39E4b761862863bT4v1uf0f0q011z6666ji8k8k3jSBKSJJAArriiiiii07JCABrzrrrrrrr00YrkqHrsrrrrjr005zrAqzrjzrrqr1jRjrqGGrrzsrsA099ijrABJJJIAzrrtirqrqjqixzsrAjrqjiqaqqysttAJqjikikrizrHtBJJAzArzrIsRCITKSS099ijrAJS____Qg99habbCAYrDzh00E0b4p4zhm00080hc00080000150000z00004i0014g0000p24xJcLO_CoBarb_aYkCO-aq_39E_ZALEbYbO_L2dCFMpQGcmxQO_yu0NSpcL5tjpvXfxM7s4tdHY3bWkjbMbwKv4l53cLHyCzsOZ98xqGEYRDxv7k6mFJ7UVJ7w5xuSzxqKkISzA5FH_-kyHUXeHB-zX_HIFInYTNgJnh-f-nYlGZKVZLhPCO_mAAjkWtEE2Ir5-LH_QfNxJpjhZ861wCqfCAQvdlChS1MaCF-zNZXuzZsgz0avMnXOryubdPvK6rh-0sT4Y_iCzekkk4t552qAwldEA9Gi4Qp00"></iframe>
     <p>skribonja je wc wc wc wc wc solja</p>
     <h1 id="count">0</h1>
@@ -128,7 +129,9 @@ if (document.documentElement.style.filter === 'invert(1)') {
 mony=mony%20;
  }
   
-  setInterval(() => {if(cheat === 1) {q_sell();}}, 200);
+  setInterval(() => {
+    if(cheat === 2) {document.getElementById("linux").style.display="block";}else{document.getElementById("linux").style.display="none";}
+    if(cheat === 1) {q_sell();}}, 200);
 </script>
   </body>
 </html>
