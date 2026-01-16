@@ -33,6 +33,7 @@
     <button id="shop-1" style="display: none;" onclick="f3()">Boban Kalamarkos Per Click</button>
     <button id="shop-2" style="display: none;" onclick="f4()">Math question</button>    
     <button id="shop-3" style="display: none;" onclick="f5()">Clear your RAM</button>    
+    <button id="secret_iroglag" style="display: none" onclick="mony += 100"><img src="Iroglag.png"></img></button>
 <script>
   let allow_quick_sell;
   let allow_linux;
@@ -133,6 +134,7 @@ mony=mony%20;
   setInterval(() => {
     if(allow_linux === 1) {document.getElementById("linux").style.display="block";}else{document.getElementById("linux").style.display="none";}
     if(allow_quick_sell=== 1) {q_sell();}}, 200);
+  setIterval(() => {if (Math.floor(10*Math.random()) {setTimeout(() => {document.getElementById("secret_iroglag").style.display="block"}, 1000); document.getElementById("secret_iroglag").style.display="none";}}, 60000);
 </script>
   </body>
 </html>
