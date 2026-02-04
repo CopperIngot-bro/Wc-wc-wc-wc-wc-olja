@@ -131,16 +131,21 @@
     }
   
     // Game Loops
-    setInterval(() => {
-        if (allow_linux === 1) {
-            document.getElementById("linux").style.display = "block";
-        } else {
-            document.getElementById("linux").style.display = "none";
-        }
-        if (allow_quick_sell === 1) {
-            q_sell();
-        }
-    }, 200);
+    function gameLoop() {
+    if (allow_linux === 1) {
+        document.getElementById("linux").style.display = "block";
+    } else {
+        document.getElementById("linux").style.display = "none";
+    }
+
+    if (allow_quick_sell === 1) {
+        q_sell();
+    }
+
+    requestAnimationFrame(gameLoop);
+}
+
+gameLoop();
 
     // Secret Iroglag Appear Logic
     setInterval(() => {
