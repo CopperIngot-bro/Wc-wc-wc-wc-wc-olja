@@ -185,14 +185,15 @@ function light_cycle() {
     setTimeout(() => {
     a_weith = Math.min(20000, Math.floor(Math.random()*10000));
     if (light === "green") {
-    body_.style.backgroundColor = "red";
+    body_.style.backgroundColor = "yellow";
     setTimeout( () => {
  light = "red";}, 1000);   
 }else{
-    body_.style.backgroundColor = "green";
+    body_.style.backgroundColor = "yellow";
     setTimeout( () => {
  light = "green";}, 1000);
 }
+body_.style.backgroundColor = light;
  light_cycle();
 }, a_weith);}
     light_cycle();
