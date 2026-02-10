@@ -134,12 +134,14 @@
     }
     
     function chth() {
+        
       document.getElementById("body").style.backgroundColor="#fff";  
         if (document.documentElement.style.filter === 'invert(1)') {
             document.documentElement.style.filter = 'invert(0)';
         } else {
             document.documentElement.style.filter = 'invert(1)';
         }
+        body_.style.backgroundColor = light;
     }
 
     // Fixed the broken function here
