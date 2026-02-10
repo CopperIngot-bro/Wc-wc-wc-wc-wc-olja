@@ -49,7 +49,7 @@
     let mony = 0;
     let g = 1; 
     let Boban_Kalamarkos = [];
-    body_.backgroundColor = light;
+    body_.style.backgroundColor = light;
 
     // Function to keep the screen numbers updated
     function updateDisplay() {
@@ -181,11 +181,11 @@ gameLoop();
 setInterval(() => {
     let a_weith = Math.min(20000, Math.floor(Math.random()*10000));
 if (light === "green") {
-    body_.backgroundColor = "red";
+    body_.style.backgroundColor = "red";
     setTimeout( () => {
  light = "red";}, 1000);   
 }else{
-    body_.backgroundColor = "green";
+    body_.style.backgroundColor = "green";
     setTimeout( () => {
  light = "green";}, 1000);
 }
