@@ -184,12 +184,11 @@ gameLoop();
 function light_cycle() {
     setTimeout(() => {
     a_weith = Math.min(20000, Math.floor(Math.random()*10000));
-    if (light === "green") {
     body_.style.backgroundColor = "yellow";
+        if (light === "green") {
     setTimeout( () => {
  light = "red";}, 1000);   
 }else{
-    body_.style.backgroundColor = "yellow";
     setTimeout( () => {
  light = "green";}, 1000);
 }
