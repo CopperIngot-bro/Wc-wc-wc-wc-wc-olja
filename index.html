@@ -181,9 +181,10 @@ gameLoop();
             }, 3000); // Stays for 1.5 seconds
         }
     }, 20000); // Checks every 10 seconds
-setInterval(() => {
-    let a_weith = Math.min(20000, Math.floor(Math.random()*10000));
-if (light === "green") {
+function light_cycle() {
+    setTimeout(() => {
+    a_weith = Math.min(20000, Math.floor(Math.random()*10000));
+    if (light === "green") {
     body_.style.backgroundColor = "red";
     setTimeout( () => {
  light = "red";}, 1000);   
@@ -192,8 +193,9 @@ if (light === "green") {
     setTimeout( () => {
  light = "green";}, 1000);
 }
-    
-}, a_weith)
+ light_cycle();
+}, a_weith);}
+    light_cycle();
 </script>
 </body>
 </html>
