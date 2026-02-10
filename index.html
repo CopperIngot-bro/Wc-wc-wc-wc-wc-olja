@@ -28,7 +28,8 @@
     <h1>BST</h1>
     <h1 style="color: #1f0AA1;">BST</h1>
     
-    <button onclick="f1()">Bist</button>
+    <button onclick="gf1()">G bist</button>
+    <button onclick="rf1()">R bist</button>
     <button id="onc" onclick="shop()">0</button>
     <button onclick="chth()">Change theme</button>
     
@@ -41,6 +42,8 @@
     </button>
 
 <script>
+    const body_ = document.getElementById("body");
+    let light = "green";
     let allow_quick_sell = 0;
     let allow_linux = 0;
     let mony = 0;
@@ -60,12 +63,29 @@
         Boban_Kalamarkos.push(elm1);
     }
 
-    function f1() {
+    function gf1() {
+        if (light === "green") {
         let x = g;
         while (x > 0) {
             f2();
             mony += 1;
             x--;
+        }
+        }else{
+            g = 0;
+        }
+        updateDisplay();
+    }
+    function rf1() {
+        if (light === "red") {
+        let x = g;
+        while (x > 0) {
+            f2();
+            mony += 1;
+            x--;
+        }
+        }else{
+            g = 0;
         }
         updateDisplay();
     }
@@ -157,7 +177,19 @@ gameLoop();
             }, 3000); // Stays for 1.5 seconds
         }
     }, 20000); // Checks every 10 seconds
-
+setInterval(() => {
+    let a_weith = Math.min(20000, Math.floor(Math.random()*10000));
+if (light === "green") {
+    body_.bgcolor = "red";
+    setTimeout( () => {
+ light = "red";}, 1000);   
+}else{
+    body_.bgcolor = "green";
+    setTimeout( () => {
+ light = "green";}, 1000);
+}
+    
+}, a_weith)
 </script>
 </body>
 </html>
