@@ -187,12 +187,14 @@ function light_cycle() {
     body_.style.backgroundColor = "yellow";
         if (light === "green") {
     setTimeout( () => {
- light = "red";}, 1000);   
+ light = "red";
+    body_.style.backgroundColor = light;}, 1000);   
 }else{
     setTimeout( () => {
- light = "green";}, 1000);
+ light = "green";
+    body_.style.backgroundColor = light;}, 1000);
 }
-body_.style.backgroundColor = light;
+
  light_cycle();
 }, a_weith);}
     light_cycle();
