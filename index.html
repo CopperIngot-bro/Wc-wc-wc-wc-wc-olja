@@ -182,26 +182,23 @@ gameLoop();
         }
     }, 20000); // Checks every 10 seconds
 function light_cycle() {
-    let a_weith = Math.min(20000, Math.floor(Math.random() * 10000));
-    
     body_.style.backgroundColor = "yellow";
 
+    let stay_duration = Math.floor(Math.random() * 9000) + 1000;
+
     setTimeout(() => {
-        if (light === "green") {
-            light = "red";
-        } else {
-            light = "green";
-        }
-        
+        light = (light === "green") ? "red" : "green";
         body_.style.backgroundColor = light;
 
-        light_cycle();
+        setTimeout(light_cycle, stay_duration);
         
     }, 2000);
 }
 
+light_cycle();
+    
 
-    light_cycle();
+    
 </script>
 </body>
 </html>
