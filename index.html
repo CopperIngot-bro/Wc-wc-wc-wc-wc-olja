@@ -44,6 +44,7 @@
 
 <script>
     const body_ = document.getElementById("body");
+    let level = 1;
     let a_weith;
     let light = "green";
     let allow_quick_sell = 0;
@@ -51,6 +52,7 @@
     let mony = 0;
     let g = 1; 
     let lvl1 = 500;
+    let lvl2 = 1000;
     let Boban_Kalamarkos = [];
     body_.style.backgroundColor = light;
 
@@ -58,8 +60,10 @@
     function updateDisplay() {
         document.getElementById("count").textContent = g;
         document.getElementById("onc").textContent = mony;
+        if (level == 1) {
         lvl1 = 501 - g;
-        document.getElementById("lvl1_count").textContent = lvl1-1;
+        document.getElementById("lvl_count").textContent = (lvl1-1)+" more to go for level 2!";
+        }
     }
 
     function gf2() {
