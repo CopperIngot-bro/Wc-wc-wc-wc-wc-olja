@@ -22,7 +22,6 @@
     
     <p>skribonja je wc wc wc wc wc solja</p>
     <h1 id="count">1</h1>
-    <h1 id="lvl1_count">500 more to go for level 2!</h1>
     <p>mirko</p>
     <h1>Mirkopin</h1>
     <h2 style="color: #ff1231;">Pingvin</h2>
@@ -50,9 +49,7 @@
     let allow_quick_sell = 0;
     let allow_linux = 0;
     let mony = 0;
-    let g = 1; 
-    let lvl1 = 500;
-    let lvl2 = 1000;
+    let g = 1;
     let Boban_Kalamarkos = [];
     body_.style.backgroundColor = light;
 
@@ -60,10 +57,6 @@
     function updateDisplay() {
         document.getElementById("count").textContent = g;
         document.getElementById("onc").textContent = mony;
-        if (level === 1) {
-        lvl1 = 501 - g;
-        document.getElementById("lvl_count").textContent = lvl1 - 1;
-        }
     }
 
     function gf2() {
