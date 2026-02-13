@@ -58,9 +58,15 @@
         document.getElementById("onc").textContent = mony;
     }
 
-    function f2() {
+    function gf2() {
         const elm1 = document.createElement("h1");
         elm1.textContent = "Boban Kalamarko";
+        document.body.appendChild(elm1);
+        Boban_Kalamarkos.push(elm1);
+    }
+    function rf2() {
+        const elm1 = document.createElement("h1");
+        elm1.textContent = "Ljubiša Pištoljević";
         document.body.appendChild(elm1);
         Boban_Kalamarkos.push(elm1);
     }
@@ -69,7 +75,7 @@
         if (light === "red") {
         let x = g;
         while (x > 0) {
-            f2();
+            gf2();
             mony += 1;
             x--;
         }
@@ -82,7 +88,7 @@
         if (light === "green") {
         let x = g;
         while (x > 0) {
-            f2();
+            rf2();
             mony += 1;
             x--;
         }
@@ -187,7 +193,7 @@ function light_cycle() {
     let stay_duration = Math.floor(Math.random() * 9000) + 1000;
 
     setTimeout(() => {
-        light = (light === "green") ? "red" : "green";
+        light = (light === "green")? "red" : "green";
         body_.style.backgroundColor = light;
 
         setTimeout(light_cycle, stay_duration);
