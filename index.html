@@ -60,65 +60,70 @@
     let allow_linux = 0;
     let mony = 0;
     let g = 1;
+    let correct = 0;
     let Boban_Kalamarkos = [];
     body_.style.backgroundColor = light;
 
     // Function to keep the screen numbers updated
-    function updateDisplay() {
-    document.getElementById("count").textContent = g;
-    document.getElementById("onc").textContent = mony;
+    async function updateDisplay() {
+        document.getElementById("count").textContent = g;
+        document.getElementById("onc").textContent = mony;
 
-    if (level === 1 && g >= 1000) {
-        level = 2;
-        g = 1;
-    } else if (level === 2 && g >= 10000) {
-        level = 3;
-        g = 1;
-        await startLevel3Quiz();
-        if (correct === 3) {
-            level = 4;
-        }
-    }
-
-    document.getElementById("lvlcount").textContent = `level ${level}`;
-    if (level === 2) {
-        document.getElementById("bist-3").style.display = "block";
-    }
-}
-
-function startLevel3Quiz() {
-    let correct = 0;
-    let questionsAsked = 0;
-    boban_kalamarko.style.display = "block";
-    question1.style.display = "block";
-    answer1.style.display = "block";
-
-    function nextQuestion() {
-        if (questionsAsked >= 3) {
-            question1.style.display = "none";
-            answer1.style.display = "none";
-            return;
-        }
-
-        let a = Math.floor(Math.random() * 10);
-        let b = Math.floor(Math.random() * 10);
-        let res = a * b;
-        question1.textContent = `${a} × ${b}`;
-
-        let waitTime = (questionsAsked === 0) ? 10000 : 3000;
-
-        setTimeout(() => {
-            if (parseInt(answer1.value) === res) {
-                correct++;
+        if (level === 1 && g >= 1000) {
+            level = 2;
+            g = 1;
+        } else if (level === 2 && g >= 10000) {
+            level = 3;
+            g = 1;
+            await startLevel3Quiz();
+            if (correct === 3) {
+                level = 4;
             }
-            answer1.value = null;
-            questionsAsked++;
-            nextQuestion();
-        }, waitTime);
+        }
+
+        document.getElementById("lvlcount").textContent = `level ${level}`;
+        if (level === 2) {
+            document.getElementById("bist-3").style.display = "block";
+        }
     }
 
-    nextQuestion();
-}
+    function startLevel3Quiz() {
+        return new Promise((resolve) => {
+            let correctCount = 0;
+            let questionsAsked = 0;
+            boban_kalamarko.style.display = "block";
+            question1.style.display = "block";
+            answer1.style.display = "block";
+
+            function nextQuestion() {
+                if (questionsAsked >= 3) {
+                    question1.style.display = "none";
+                    answer1.style.display = "none";
+                    correct = correctCount;
+                    resolve();
+                    return;
+                }
+
+                let a = Math.floor(Math.random() * 10);
+                let b = Math.floor(Math.random() * 10);
+                let res = a * b;
+                question1.textContent = `${a} × ${b}`;
+
+                let waitTime = (questionsAsked === 0) ? 10000 : 3000;
+
+                setTimeout(() => {
+                    if (parseInt(answer1.value) === res) {
+                        correctCount++;
+                    }
+                    answer1.value = "";
+                    questionsAsked++;
+                    nextQuestion();
+                }, waitTime);
+            }
+
+            nextQuestion();
+        });
+    }
     
     function gf2() {
         const elm1 = document.createElement("h1");
@@ -141,39 +146,39 @@ function startLevel3Quiz() {
 
     function gf1() {
         if (light === "red") {
-        let x = g;
-        while (x > 0) {
-            gf2();
-            mony += 1;
-            x--;
-        }
-        }else{
+            let x = g;
+            while (x > 0) {
+                gf2();
+                mony += 1;
+                x--;
+            }
+        } else {
             g = 1;
         }
         updateDisplay();
     }
     function rf1() {
         if (light === "green") {
-        let x = g;
-        while (x > 0) {
-            rf2();
-            mony += 1;
-            x--;
-        }
-        }else{
+            let x = g;
+            while (x > 0) {
+                rf2();
+                mony += 1;
+                x--;
+            }
+        } else {
             g = 1;
         }
         updateDisplay();
     }
     function bf1() {
         if (light === "blue") {
-        let x = g;
-        while (x > 0) {
-            bf2();
-            mony += 1;
-            x--;
-        }
-        }else{
+            let x = g;
+            while (x > 0) {
+                bf2();
+                mony += 1;
+                x--;
+            }
+        } else {
             g = 1;
         }
         updateDisplay();
@@ -222,8 +227,7 @@ function startLevel3Quiz() {
     }
     
     function chth() {
-        
-      document.getElementById("body").style.backgroundColor="#fff";  
+        document.getElementById("body").style.backgroundColor="#fff";  
         if (document.documentElement.style.filter === 'invert(1)') {
             document.documentElement.style.filter = 'invert(0)';
         } else {
@@ -243,20 +247,20 @@ function startLevel3Quiz() {
   
     // Game Loops
     function gameLoop() {
-    if (allow_linux === 1) {
-        document.getElementById("linux").style.display = "block";
-    } else {
-        document.getElementById("linux").style.display = "none";
+        if (allow_linux === 1) {
+            document.getElementById("linux").style.display = "block";
+        } else {
+            document.getElementById("linux").style.display = "none";
+        }
+
+        if (allow_quick_sell === 1) {
+            q_sell();
+        }
+
+        requestAnimationFrame(gameLoop);
     }
 
-    if (allow_quick_sell === 1) {
-        q_sell();
-    }
-
-    requestAnimationFrame(gameLoop);
-}
-
-gameLoop();
+    gameLoop();
 
     // Secret Iroglag Appear Logic
     setInterval(() => {
@@ -269,28 +273,22 @@ gameLoop();
         }
     }, 20000); // Checks every 10 seconds
     
-function light_cycle() {
-    
-    body_.style.backgroundColor = "yellow";
-
-    let stay_duration = Math.floor(Math.random() * 9000) + 1000;
-    
-    setTimeout(() => {
-        if (level === 1) {
-        light = (light === "green")? "red" : "green";
-        }else{
-            if (level === 2) {
-        light = (light === "green")? "red" : (light === "red")? "blue" : "green";
+    function light_cycle() {
+        body_.style.backgroundColor = "yellow";
+        let stay_duration = Math.floor(Math.random() * 9000) + 1000;
+        
+        setTimeout(() => {
+            if (level === 1) {
+                light = (light === "green")? "red" : "green";
+            } else if (level === 2) {
+                light = (light === "green")? "red" : (light === "red")? "blue" : "green";
             }
-        }
-        body_.style.backgroundColor = light;
-    
-     setTimeout(light_cycle, stay_duration);
-    }, 2000);
-}
+            body_.style.backgroundColor = light;
+            setTimeout(light_cycle, stay_duration);
+        }, 2000);
+    }
 
-light_cycle();
-
+    light_cycle();
     
 </script>
 </body>
