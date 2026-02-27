@@ -72,12 +72,19 @@
         if (level === 1 && g >= 1000) {
             level = 2;
             g = 1;
-        } else if (level === 2 && g >= 10000) {
+        } else if (level === 2 && g >= 5000) {
             level = 3;
             g = 1;
             await startLevel3Quiz();
             if (correct === 3) {
                 level = 4;
+                boban_kalamarko.style.display = "none";
+                question1.style.display = "none";
+                anwer1.style.display = "none";
+            }else{
+                level = 1;
+                g = 1;
+                mony = 0;
             }
         }
 
