@@ -76,11 +76,11 @@
             level = 3;
             g = 1;
             await startLevel3Quiz();
-            if (correct === 3) {
-                level = 4;
-                boban_kalamarko.style.display = "none";
+            boban_kalamarko.style.display = "none";
                 question1.style.display = "none";
                 anwer1.style.display = "none";
+            if (correct === 3) {
+                level = 4;
             }else{
                 level = 1;
                 g = 1;
